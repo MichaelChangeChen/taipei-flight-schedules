@@ -4,5 +4,5 @@
 // })
 
 module.exports = {
-	publicPath: '/JSForCV/'
+	publicPath: '/taipie-flight-schedules/'
 }
