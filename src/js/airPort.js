@@ -30,7 +30,7 @@ export default
 			e.target.tagName === "H1" ? navUl.classList.toggle("showNav") : "";
 		});
 
-		// this.getAirPort();
+		this.getAirPort();
 		this.getWindowHeight();
 	},
 	methods: {
