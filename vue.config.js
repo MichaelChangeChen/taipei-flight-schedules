@@ -4,5 +4,5 @@
 // })
 
 module.exports = {
-	publicPath: '/taipie-flight-schedules/'
+	publicPath: '/taipei-flight-schedules/'
 }
