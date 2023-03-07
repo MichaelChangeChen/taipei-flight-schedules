@@ -53,7 +53,7 @@
 							<div class="airlines">
 								<h1>
 									<p>航空公司</p>
-									Airlines: {{ air.AirlineID + '' + airRename(air.AirlineID)}}
+									Airlines: {{ airRename(air.AirlineID) }}
 								</h1>
 							</div>
 							<div class="flight">
@@ -66,11 +66,11 @@
 								<div class="timeCard">
 									<div class="std">
 										<span>STD.:</span>
-										<p>{{ air.ScheduleDepartureTime }}</p>
+										<p>{{ moment(air.ScheduleDepartureTime).format('YYYY-MM-DD HH:mm') }}</p>
 									</div>
 									<div class="etd">
 										<span>ETD.:</span>
-										<p>{{ air.EstimatedDepartureTime }}</p>
+										<p>{{ moment(air.EstimatedDepartureTime).format('YYYY-MM-DD HH:mm') }}</p>
 									</div>
 								</div>
 							</div>
@@ -85,7 +85,7 @@
 					<span class="status">Remarks:
 						<p :class="remarkStyle(air.DepartureRemark)">{{ air.DepartureRemark }}</p>
 					</span>
-					<div class="updateDT">Update: {{ air.UpdateTime }}</div>
+					<div class="updateDT">Update: {{ moment(air.UpdateTime).format('YYYY-MM-DD HH:mm:ss') }}</div>
 				</div>
 			</template>
 		</div>

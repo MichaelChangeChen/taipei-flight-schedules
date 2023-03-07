@@ -516,7 +516,7 @@ section{
 		}
 	}
 }
-@media (max-width: 750px) {
+@media (max-width: 1140px) {
 	section {
 		.black {
 			&::before, &::after {
@@ -615,35 +615,23 @@ section{
 				transition: 0.4s ease-out;
 			}
 		}
+		
+		.cards{
+			.cardsTop{
+				.cardsLeft{
+					.timeCardBox{
+						width: 100%;
+					}
+				}
+			}
+			.status{
+				margin-top: 15px;
+			}
+		}
 	}
 }
-.textPage {
 
-	.textShow1, .textShow2, 
-	.textShow3, .textShow4, 
-	.textShow5 {
-	  opacity: 1;
-	  transition: 0.4s ease-out;
-	}
-
-	.textShow1 {
-	  top: 15%;
-	}
-	.textShow2 {
-	  left: calc(50% - 358px);
-	}
-	.textShow3 {
-	  left: calc(50% - 350px);
-	}
-	.textShow4 {
-	  left: calc(50% - 336.5px);
-	}
-	.textShow5 {
-	  top: 75%;
-	}
-
-} 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 	section {
 		.black{
 			height: 85vh;
@@ -702,6 +690,16 @@ section{
 		.mainTitle{
 			h1{
 				font-size: 3rem;
+			}
+		}
+		.cards{
+			.cardsTop{
+				.cardsLeft{
+					.airlines,
+					.flight{
+						width: 100%;
+					}
+				}
 			}
 		}
 	}

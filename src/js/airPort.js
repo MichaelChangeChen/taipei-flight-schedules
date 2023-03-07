@@ -2,6 +2,7 @@ import Header from '@/components/view/AirPortHeader.vue'
 import dataList from '@/datas/lineList.json'
 import airCompanyEng from '@/datas/airCompanyEng.js'
 import airCompanyCh from '@/datas/airCompanyCh.js'
+import moment from 'moment'
 
 export default
 {
@@ -10,6 +11,7 @@ export default
 	},
 	data(){
 		return {
+			moment,
 			lineList: dataList,
 			textPageItem: {
 				textActive1: 240,
