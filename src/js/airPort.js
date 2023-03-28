@@ -25,6 +25,50 @@ export default
 		}
 	},
 	mounted(){
+		// ues IntersectionObserver
+		//set callback
+		// const observerCallback = (entries) => {
+			// entries.forEach(item => {
+				/*
+				* item.time当可视状态变化时，状态发送改变的时间戳,ms
+				* item.rootBounds：根元素矩形区域的信息，即为getBoundingClientRect方法返回的值
+				* item.boundingClientRect：目标元素的矩形区域的信息。
+				* item.intersectionRect：目标元素与视口（或根元素）的交叉区域的信息.
+				* item.isIntersecting：目标元素与根元素是否相交
+				* item.intersectionRatio：目标元素的可见比例，即intersectionRect占boundingClientRect的比例。
+				* item.target：目标元素。
+				*/	
+			// })
+		// }
+
+		// set options 
+		// const options = {
+			//
+			// root: null,
+			// 
+			// rootMargin: '0px 0px 0px 0px',
+			//（0~1）
+			// threshold: 1
+		// };
+
+		//取得待觀察元素
+		let lazy = this.$refs.lazyload;
+		console.log(lazy);
+
+		const option = {
+			threshold: 1
+		};
+		const callback = (entries, observe) => {
+			console.log('entries---',entries);
+			console.log('observe---',observe);
+		};
+		const observer = new IntersectionObserver(callback, option);
+		observer.observe(lazy);
+
+
+
+
+
 		const navbtn = document.querySelector(".navBtn");
 
 		navbtn.addEventListener("click", (e) => {

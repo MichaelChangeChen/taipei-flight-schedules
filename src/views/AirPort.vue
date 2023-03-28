@@ -39,6 +39,8 @@
 				Situations
 			</h5>
 		</div>
+		<!-- --- this ref lazyload is for testing --- -->
+		<div ref="lazyload"></div>
 		<div class="mainTitle">
 			<h1 :class="{ 'textShow6': getTextShow(textPageItem.textActive6) }">
 				TPE Flight's
