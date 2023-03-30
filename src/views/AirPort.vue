@@ -23,26 +23,24 @@
 			</div>
 		</div>
 		<div class="textPage">
-			<h1 :class="{ 'textShow1': getTextShow(textPageItem.textActive1)}">
+			<h1 class="lazyload " :class="{ 'textShow1': isLazyLoad[0] }">
 				First
 			</h1>
-			<h4 :class="{ 'textShow2': getTextShow(textPageItem.textActive2) }">
+			<h4 class="lazyload" :class="{ 'textShow2': isLazyLoad[1] }">
 				We Just Have To Know
 			</h4>
-			<h3 :class="{ 'textShow3': getTextShow(textPageItem.textActive3) }">
+			<h3 class="lazyload" :class="{ 'textShow3': isLazyLoad[2] }">
 				Taiwan International Airport (TPE)
 			</h3>
-			<h2 :class="{ 'textShow4': getTextShow(textPageItem.textActive4) }">
+			<h2 class="lazyload" :class="{ 'textShow4': isLazyLoad[3] }">
 				Airport Flight's
 			</h2>
-			<h5 :class="{ 'textShow5': getTextShow(textPageItem.textActive5) }">
+			<h5 class="lazyload" :class="{ 'textShow5': isLazyLoad[4] }">
 				Situations
 			</h5>
 		</div>
-		<!-- --- this ref lazyload is for testing --- -->
-		<div ref="lazyload"></div>
 		<div class="mainTitle">
-			<h1 :class="{ 'textShow6': getTextShow(textPageItem.textActive6) }">
+			<h1 class="lazyload" :class="{ 'textShow6': isLazyLoad[5] }">
 				TPE Flight's
 				<div class="bottomLine"></div>
 			</h1>
