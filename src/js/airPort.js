@@ -1,8 +1,8 @@
 import AirPortHeader from '@/components/view/AirPortHeader.vue'
 import AirPortLoader from '@/components/view/AirPortLoader.vue'
-import dataList from '@/datas/lineList.json'
-import airCompanyEng from '@/datas/airCompanyEng.js'
-import airCompanyCh from '@/datas/airCompanyCh.js'
+import dataList from '@/../public/datas/lineList.json'
+import airCompanyEng from '@/../public/datas/airCompanyEng.js'
+import airCompanyCh from '@/../public/datas/airCompanyCh.js'
 import moment from 'moment'
 
 export default
