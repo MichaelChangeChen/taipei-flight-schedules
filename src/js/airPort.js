@@ -1,4 +1,5 @@
-import Header from '@/components/view/AirPortHeader.vue'
+import AirPortHeader from '@/components/view/AirPortHeader.vue'
+import AirPortLoader from '@/components/view/AirPortLoader.vue'
 import dataList from '@/datas/lineList.json'
 import airCompanyEng from '@/datas/airCompanyEng.js'
 import airCompanyCh from '@/datas/airCompanyCh.js'
@@ -7,50 +8,22 @@ import moment from 'moment'
 export default
 {
 	components:{
-		Header
+		AirPortHeader,
+		AirPortLoader
 	},
 	data(){
 		return {
 			moment,
 			lineList: dataList,
-			isLazyLoad: []
+			isLoadList: [],
+			infiniteList: []
 		}
 	},
 	mounted(){
-		// ues IntersectionObserver
-		let lazy = document.querySelectorAll('.lazyload');
-		const option = {
-			root: null,
-			rootMargin: '-50px 0px -50px 0px',
-			threshold: 0.1
-		};
-		const callback = entries => {
-			entries.forEach(entry => {
-				lazy.forEach((el,index) => {
-					if(entry.target === el){
-						if(!entry.isIntersecting){
-							return this.isLazyLoad[index] = false;
-						}
-						this.isLazyLoad[index] = true;
-					}
-				})
-			})
-		};
-		let observer = new IntersectionObserver(callback, option);
-
-		lazy.forEach(el =>{
-			observer.observe(el);
-		});
-
-		//  Navbar here
-		const navbtn = document.querySelector(".navBtn");
-		navbtn.addEventListener("click", (e) => {
-			const navUl = document.querySelector(".navUl");
-			e.target.tagName === "H1" ? navUl.classList.toggle("showNav") : "";
-		});
-
-		// get api
 		this.getAirPort();
+		this.textIntersectionObserver();
+		this.infiniteIntersectionObserver();
+		this.holdNavbar();
 	},
 	methods: {
 		getAirPort(){
@@ -61,6 +34,57 @@ export default
 			.catch((error)=>{
 				console.log(error);
 			});
+		},
+		textIntersectionObserver(){
+			let texts = document.querySelectorAll('.lazyload');
+			const textObserverOption = {
+				root: null,
+				rootMargin: '-50px 0px -50px 0px',
+				threshold: 0.1
+			};
+			const holdTextLazyLoad = entries => {
+				entries.forEach(entry => {
+					texts.forEach((el,index) => {
+						if(entry.target === el){
+							if(!entry.isIntersecting){
+								return this.isLoadList[index] = false;
+							}
+							this.isLoadList[index] = true;
+						}
+					})
+				})
+			};
+			let textObserver = new IntersectionObserver(holdTextLazyLoad, textObserverOption);
+			texts.forEach(el => textObserver.observe(el));
+		},
+		infiniteIntersectionObserver(){
+			let infiniteObserver = document.querySelector('.hold-observe');
+			let loader = document.querySelector('.page-loading');
+			let count = 20;
+			let isOverList;
+			const cardsObserverOption = {
+				root: null,
+				rootMargin: '0px 0px -100px 0px',
+				threshold: 0.1
+			};
+			const holdCardsScroll = (entries) => {
+				if(!entries[0].isIntersecting){
+					return loader.style.display = 'none';
+				}
+				loader.style.display = 'block';
+				setTimeout(()=>{
+					this.infiniteList = this.lineList.filter((el,index) => {
+						return isOverList = index < count
+					})
+					if(isOverList){
+						loader.style.display = 'none';
+						cardsObserver.unobserve(infiniteObserver);
+					}
+					count += 20;
+				},500);
+			};
+			let cardsObserver = new IntersectionObserver(holdCardsScroll, cardsObserverOption);
+			cardsObserver.observe(infiniteObserver);	
 		},
 		remarkStyle(departure) {
 			if(departure.includes("出發")){
@@ -90,6 +114,13 @@ export default
 			}
 			});
 			return companyName
+		},
+		holdNavbar(){
+			const navbtn = document.querySelector(".navBtn");
+			navbtn.addEventListener("click", (e) => {
+				const navUl = document.querySelector(".navUl");
+				e.target.tagName === "H1" ? navUl.classList.toggle("showNav") : "";
+			});
 		}
 	}
 }

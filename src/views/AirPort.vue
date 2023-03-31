@@ -1,6 +1,5 @@
 <template>
-	<Header>
-	</Header>
+	<AirPortHeader />
 	<section>
 		<div class="black">
 			<div class="videoBlock">
@@ -23,30 +22,30 @@
 			</div>
 		</div>
 		<div class="textPage">
-			<h1 class="lazyload " :class="{ 'textShow1': isLazyLoad[0] }">
+			<h1 class="lazyload " :class="{ 'textShow1': isLoadList[0] }">
 				First
 			</h1>
-			<h4 class="lazyload" :class="{ 'textShow2': isLazyLoad[1] }">
+			<h4 class="lazyload" :class="{ 'textShow2': isLoadList[1] }">
 				We Just Have To Know
 			</h4>
-			<h3 class="lazyload" :class="{ 'textShow3': isLazyLoad[2] }">
+			<h3 class="lazyload" :class="{ 'textShow3': isLoadList[2] }">
 				Taiwan International Airport (TPE)
 			</h3>
-			<h2 class="lazyload" :class="{ 'textShow4': isLazyLoad[3] }">
+			<h2 class="lazyload" :class="{ 'textShow4': isLoadList[3] }">
 				Airport Flight's
 			</h2>
-			<h5 class="lazyload" :class="{ 'textShow5': isLazyLoad[4] }">
+			<h5 class="lazyload" :class="{ 'textShow5': isLoadList[4] }">
 				Situations
 			</h5>
 		</div>
 		<div class="mainTitle">
-			<h1 class="lazyload" :class="{ 'textShow6': isLazyLoad[5] }">
+			<h1 class="lazyload" :class="{ 'textShow6': isLoadList[5] }">
 				TPE Flight's
 				<div class="bottomLine"></div>
 			</h1>
 		</div>
 		<div id="apiTest">
-			<template v-for="air in lineList" :key="air.FlightNumber">
+			<template v-for="air in infiniteList" :key="air.FlightNumber">
 				<div class="cards">
 					<div class="cardsTop">
 						<div class="cardsLeft">
@@ -88,8 +87,10 @@
 					<div class="updateDT">Update: {{ moment(air.UpdateTime).format('YYYY-MM-DD HH:mm:ss') }}</div>
 				</div>
 			</template>
+			<div class="hold-observe"></div>
 		</div>
 	</section>
+	<AirPortLoader />
 </template>
 
 <script src="@/js/airPort.js"></script>
