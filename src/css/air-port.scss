@@ -187,7 +187,6 @@ section{
 	.textShow6 {
 		opacity: 1;
 	}
-
 }
 
 #apiTest {
@@ -200,7 +199,6 @@ section{
   	gap: 20px;
   	background: #000;
   	position: relative;
-
   	&:before {
 		content: "";
 		position: absolute;
@@ -213,6 +211,10 @@ section{
 		-webkit-filter: blur(6px) brightness(0.6) grayscale(70%);
 		filter: blur(6px) brightness(0.6) grayscale(70%);
   	}
+	.hold-observe {
+		width: 100%;
+		height: 120px;
+	}
 }
 
 .cards {
@@ -401,10 +403,6 @@ section{
 		text-shadow: 0 0 3px rgb(255, 255, 0);
 	}
 }
-
-
-
-
 
 @media (min-width: 1140px) {
 	section {
@@ -776,4 +774,3 @@ section{
 	  text-shadow: 5px 5px 8px black, 2px 2px 14px rgb(237, 190, 190), 3px 3px 18px rgb(164, 236, 250), 0px 0px 10px rgb(236, 227, 153);
 	}
   }
-  
