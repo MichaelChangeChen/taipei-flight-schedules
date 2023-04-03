@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkflight_schedules"]=self["webpackChunkflight_schedules"]||[]).push([[443],{7381:function(e,n,s){s.r(n),s.d(n,{default:function(){return f}});var u=s(6252);const t={class:"about"},a=(0,u._)("h1",null,"This is an about page",-1),c=[a];function r(e,n){return(0,u.wg)(),(0,u.iD)("div",t,c)}var i=s(3744);const l={},h=(0,i.Z)(l,[["render",r]]);var f=h}}]);
+//# sourceMappingURL=about.1f95a73e.js.map
